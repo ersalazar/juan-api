@@ -3,5 +3,5 @@ export default interface NewCustomer {
     lastName: string,
     email: string,
     phone: string,
-    adress: string,
+    address: string,
 }
