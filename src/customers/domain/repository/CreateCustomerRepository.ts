@@ -8,6 +8,7 @@ export default class CreateCustomerRepository implements repository<NewCustomer,
         const connection = await ConnectionSource.connect();
 
         const newCustomer = await connection.getRepository(Customer).create(data);
+        await connection.getRepository(Customer).save(newCustomer);
         return newCustomer;
     }
 }

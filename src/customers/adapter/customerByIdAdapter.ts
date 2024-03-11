@@ -9,8 +9,9 @@ export default class CustomerByIdAdapter {
         this.customerByIdUseCase = new CustomerByIdUseCase();
     }
 
-    async execute (id: number) {
-        const result = await this.customerByIdUseCase.execute(id);
+    async execute (id: string) {
+        const numberId = parseInt(id);
+        const result = await this.customerByIdUseCase.execute(numberId);
         return result;
     }
 }

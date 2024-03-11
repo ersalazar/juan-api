@@ -15,30 +15,31 @@ export default class UpdateCustomerRepository implements repository<UpdateCustom
             id: props.id ,
         });
 
+       
+
         if (!customer) {
             throw new Error(`Customer with id ${props.id} not found`);
         }
 
-        const {data} = props;
 
-        if (data.firstName) {
-            customer.firstName = data.firstName;
+        if (props.firstName) {
+            customer.firstName = props.firstName;
         }
 
-        if (data.lastName) {
-            customer.lastName = data.lastName;
+        if (props.lastName) {
+            customer.lastName = props.lastName;
         }
 
-        if (data.email) {
-            customer.email = data.email;
+        if (props.email) {
+            customer.email = props.email;
         }
 
-        if (data.phone) {
-            customer.phone = data.phone;
+        if (props.phone) {
+            customer.phone = props.phone;
         }
 
-        if (data.address) {
-            customer.adress = data.address;
+        if (props.address) {
+            customer.address = props.address;
         }
 
         await connection.getRepository(Customer).save(customer);

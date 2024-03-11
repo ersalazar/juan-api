@@ -12,13 +12,14 @@ export default class UpdateCustomerAdapter {
         this.updateCustomerUseCase = new UpdateCustomerUseCase();
     }
 
-    async execute(id: number, body: any) {
+    async execute( body: any) {
 
-        if (!id) {
+        if (!body.id) {
             throw new Error('id must be provided');
         }
 
         const schema = Joi.object({
+            id: Joi.number().required(),
             firstName: Joi.string(),
             lastName: Joi.string(),
             email: Joi.string().email(),
@@ -34,8 +35,12 @@ export default class UpdateCustomerAdapter {
         }
 
         const props: UpdateCustomer = {
-            id,
-            data: body
+            id: body.id,
+            firstName: body.firstName,
+            lastName: body.lastName,
+            email: body.email,
+            phone: body.phone,
+            address: body.address
         }
 
         const result = await this.updateCustomerUseCase.execute(props);

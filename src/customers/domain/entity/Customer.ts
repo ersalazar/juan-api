@@ -40,21 +40,11 @@ export default class Customer {
   phone: string;
 
   @Column({
-    name: "adress",
+    name: "address",
     type: "varchar",
     length: 200,
   })
-  adress: string;
+  address: string;
 
-  @Column({
-    name: "created_at",
-    type: "timestamp",
-  })
-  createdAt: Date;
 
-  @Column({
-    name: "updated_at",
-    type: "timestamp",
-  })
-  updatedAt: Date;
 }
